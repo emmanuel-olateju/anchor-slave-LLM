@@ -1,0 +1,121 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define gradients and styles -->
+  <defs>
+    <linearGradient id="anchorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="slaveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#64748b" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#1e293b">
+    Anchor-Slave Contrastive Fine-Tuning Framework
+  </text>
+  
+  <!-- Input Data Section -->
+  <g id="inputs">
+    <!-- English Input -->
+    <rect x="50" y="80" width="180" height="60" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#shadow)"/>
+    <text x="140" y="105" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#0c4a6e">English Text</text>
+    <text x="140" y="125" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#075985">"Polarized sentence..."</text>
+    
+    <!-- African Language Input -->
+    <rect x="670" y="80" width="180" height="60" rx="8" fill="#d1fae5" stroke="#059669" stroke-width="2" filter="url(#shadow)"/>
+    <text x="760" y="105" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#065f46">African Language Text</text>
+    <text x="760" y="125" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#047857">(Amharic/Hausa/Swahili)</text>
+  </g>
+  
+  <!-- Anchor Model (Left Side - Static) -->
+  <g id="anchor">
+    <rect x="50" y="180" width="180" height="120" rx="8" fill="url(#anchorGrad)" stroke="#1e40af" stroke-width="3" filter="url(#shadow)"/>
+    <text x="140" y="205" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Anchor Model</text>
+    <text x="140" y="225" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#dbeafe">(English - Static)</text>
+    <text x="140" y="245" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#bfdbfe">Task-Optimized</text>
+    <text x="140" y="260" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#bfdbfe">e.g., LaBSE, DeBERTa</text>
+    <rect x="60" y="270" width="160" height="20" rx="4" fill="#1e3a8a" opacity="0.5"/>
+    <text x="140" y="284" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">🔒 Frozen Weights</text>
+  </g>
+  
+  <!-- Slave Model (Right Side - Trainable) -->
+  <g id="slave">
+    <rect x="670" y="180" width="180" height="120" rx="8" fill="url(#slaveGrad)" stroke="#059669" stroke-width="3" filter="url(#shadow)"/>
+    <text x="760" y="205" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Slave Model</text>
+    <text x="760" y="225" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#d1fae5">(African Lang - Trainable)</text>
+    <text x="760" y="245" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#a7f3d0">Smaller/Distilled</text>
+    <text x="760" y="260" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#a7f3d0">e.g., DistilBERT, DeBERTa-small</text>
+    <rect x="680" y="270" width="160" height="20" rx="4" fill="#065f46" opacity="0.5"/>
+    <text x="760" y="284" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">⚡ Fine-tuning Active</text>
+  </g>
+  
+  <!-- Arrows from inputs to models -->
+  <line x1="140" y1="145" x2="140" y2="175" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="760" y1="145" x2="760" y2="175" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Embeddings -->
+  <g id="embeddings">
+    <!-- Anchor Embedding -->
+    <rect x="50" y="340" width="180" height="50" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="140" y="362" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1e40af">z^A (Static)</text>
+    <text x="140" y="380" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#3b82f6">English Embedding</text>
+    
+    <!-- Slave Embedding -->
+    <rect x="670" y="340" width="180" height="50" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2" filter="url(#shadow)"/>
+    <text x="760" y="362" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#065f46">z^S (Aligned)</text>
+    <text x="760" y="380" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#059669">African Lang Embedding</text>
+  </g>
+  
+  <!-- Arrows from models to embeddings -->
+  <line x1="140" y1="305" x2="140" y2="335" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="760" y1="305" x2="760" y2="335" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Contrastive Loss Center Box -->
+  <g id="contrastive">
+    <rect x="350" y="420" width="200" height="80" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="3" filter="url(#shadow)"/>
+    <text x="450" y="445" font-family="Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#92400e">Contrastive Loss</text>
+    <text x="450" y="465" font-family="Courier, monospace" font-size="11" text-anchor="middle" fill="#78350f">CosSim(z^S, z^A) / τ</text>
+    <text x="450" y="485" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#92400e">InfoNCE Alignment</text>
+  </g>
+  
+  <!-- Classification Loss -->
+  <g id="classification">
+    <rect x="620" y="440" width="140" height="50" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="2" filter="url(#shadow)"/>
+    <text x="690" y="462" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#9f1239">Classification Loss</text>
+    <text x="690" y="480" font-family="Courier, monospace" font-size="10" text-anchor="middle" fill="#be185d">L_CE</text>
+  </g>
+  
+  <!-- Arrows to losses -->
+  <path d="M 230 365 Q 350 365 410 420" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+  <path d="M 670 365 Q 600 365 490 420" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+  <line x1="760" y1="395" x2="690" y2="435" stroke="#ec4899" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+  
+  <!-- Total Loss -->
+  <g id="total-loss">
+    <rect x="375" y="530" width="150" height="50" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="3" filter="url(#shadow)"/>
+    <text x="450" y="550" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#3730a3">Total Loss</text>
+    <text x="450" y="568" font-family="Courier, monospace" font-size="10" text-anchor="middle" fill="#4f46e5">(1-λ)L_CE + λL_Align</text>
+  </g>
+  
+  <!-- Arrows to total loss -->
+  <line x1="450" y1="505" x2="450" y2="525" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M 690 490 Q 690 510 525 545" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Legend/Key Points -->
+  <g id="legend">
+    <rect x="20" y="450" width="220" height="110" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" opacity="0.95"/>
+    <text x="130" y="470" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1e293b">Key Objectives:</text>
+    <text x="30" y="490" font-family="Arial, sans-serif" font-size="11" fill="#475569">• Align embeddings across languages</text>
+    <text x="30" y="510" font-family="Arial, sans-serif" font-size="11" fill="#475569">• Maintain task performance</text>
+    <text x="30" y="530" font-family="Arial, sans-serif" font-size="11" fill="#475569">• Enable non-matching architectures</text>
+    <text x="30" y="550" font-family="Arial, sans-serif" font-size="11" fill="#475569">• Computational efficiency</text>
+  </g>
+</svg>

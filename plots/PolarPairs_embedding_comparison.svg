@@ -1,0 +1,177 @@
+<svg viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#ff9800"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" font-size="26" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    Embedding Space: Before vs After PolarPairs Alignment
+  </text>
+  <text x="700" y="55" font-size="14" text-anchor="middle" fill="#666">
+    Source: Swahili | Target: English
+  </text>
+  
+  <!-- BEFORE ALIGNMENT (Left) -->
+  <rect x="50" y="80" width="600" height="580" fill="#f5f5f5" stroke="#999" stroke-width="2" rx="5"/>
+  
+  <text x="350" y="110" font-size="20" font-weight="bold" text-anchor="middle" fill="#d32f2f">
+    Before Alignment
+  </text>
+  <text x="350" y="135" font-size="13" text-anchor="middle" fill="#666">
+    (Model trained on English only)
+  </text>
+  
+  <!-- Axes -->
+  <line x1="100" y1="600" x2="600" y2="600" stroke="#333" stroke-width="2"/>
+  <line x1="100" y1="200" x2="100" y2="600" stroke="#333" stroke-width="2"/>
+  <text x="350" y="640" font-size="12" text-anchor="middle" fill="#333">Dimension 1</text>
+  <text x="70" y="400" font-size="12" text-anchor="middle" fill="#333" transform="rotate(-90 70 400)">Dimension 2</text>
+  
+  <!-- English Positive cluster -->
+  <circle cx="480" cy="280" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="500" cy="260" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="510" cy="290" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="490" cy="310" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="520" cy="270" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="470" cy="300" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="505" cy="245" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="485" cy="325" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  
+  <!-- English Negative cluster -->
+  <circle cx="480" cy="480" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="500" cy="500" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="510" cy="470" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="490" cy="450" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="520" cy="490" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="470" cy="460" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="505" cy="510" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="495" cy="435" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  
+  <!-- Swahili Positive (overlapping) -->
+  <circle cx="220" cy="370" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.8"/>
+  <circle cx="240" cy="390" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.8"/>
+  <circle cx="210" cy="400" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.8"/>
+  <circle cx="230" cy="360" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.8"/>
+  <circle cx="250" cy="380" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.8"/>
+  <circle cx="215" cy="385" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.8"/>
+  <circle cx="235" cy="375" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.8"/>
+  <circle cx="225" cy="395" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Swahili Negative (overlapping) -->
+  <circle cx="225" cy="365" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.8"/>
+  <circle cx="245" cy="375" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.8"/>
+  <circle cx="215" cy="395" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.8"/>
+  <circle cx="235" cy="385" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.8"/>
+  <circle cx="255" cy="370" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.8"/>
+  <circle cx="220" cy="380" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.8"/>
+  <circle cx="240" cy="365" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.8"/>
+  <circle cx="230" cy="390" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Labels for Before -->
+  <text x="495" y="230" font-size="13" font-weight="bold" text-anchor="middle" fill="#2e7d32">English +ve</text>
+  <text x="495" y="540" font-size="13" font-weight="bold" text-anchor="middle" fill="#c62828">English -ve</text>
+  <text x="230" y="330" font-size="13" font-weight="bold" text-anchor="middle" fill="#555">Swahili</text>
+  <text x="230" y="348" font-size="11" text-anchor="middle" fill="#555">(+ve and -ve mixed)</text>
+  
+  <!-- Problem indicators -->
+  <line x1="270" y1="380" x2="430" y2="380" stroke="#ff9800" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrow1)"/>
+  <text x="350" y="370" font-size="12" font-weight="bold" text-anchor="middle" fill="#ff9800">Large gap</text>
+  
+  <ellipse cx="230" cy="378" rx="55" ry="60" fill="none" stroke="#9c27b0" stroke-width="3" stroke-dasharray="5,5"/>
+  <text x="180" y="440" font-size="11" font-weight="bold" text-anchor="middle" fill="#9c27b0">No class</text>
+  <text x="180" y="455" font-size="11" font-weight="bold" text-anchor="middle" fill="#9c27b0">separation!</text>
+  
+  <!-- AFTER ALIGNMENT (Right) -->
+  <rect x="750" y="80" width="600" height="580" fill="#f5f5f5" stroke="#999" stroke-width="2" rx="5"/>
+  
+  <text x="1050" y="110" font-size="20" font-weight="bold" text-anchor="middle" fill="#388e3c">
+    After PolarPairs Alignment
+  </text>
+  <text x="1050" y="135" font-size="13" text-anchor="middle" fill="#666">
+    (Swahili aligned to English space)
+  </text>
+  
+  <!-- Axes -->
+  <line x1="800" y1="600" x2="1300" y2="600" stroke="#333" stroke-width="2"/>
+  <line x1="800" y1="200" x2="800" y2="600" stroke="#333" stroke-width="2"/>
+  <text x="1050" y="640" font-size="12" text-anchor="middle" fill="#333">Dimension 1</text>
+  <text x="770" y="400" font-size="12" text-anchor="middle" fill="#333" transform="rotate(-90 770 400)">Dimension 2</text>
+  
+  <!-- English Positive -->
+  <circle cx="1020" cy="280" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="1040" cy="260" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="1050" cy="290" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="1030" cy="310" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="1060" cy="270" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="1010" cy="300" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="1045" cy="245" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  <circle cx="1025" cy="325" r="8" fill="#4CAF50" stroke="#2e7d32" stroke-width="2"/>
+  
+  <!-- Swahili Positive (now aligned with English positive) -->
+  <circle cx="1015" cy="285" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.9"/>
+  <circle cx="1035" cy="265" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.9"/>
+  <circle cx="1055" cy="295" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.9"/>
+  <circle cx="1025" cy="315" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.9"/>
+  <circle cx="1065" cy="275" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.9"/>
+  <circle cx="1005" cy="305" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.9"/>
+  <circle cx="1040" cy="250" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.9"/>
+  <circle cx="1030" cy="320" r="8" fill="#81C784" stroke="#2e7d32" stroke-width="2" opacity="0.9"/>
+  
+  <!-- English Negative -->
+  <circle cx="1020" cy="480" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="1040" cy="500" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="1050" cy="470" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="1030" cy="450" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="1060" cy="490" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="1010" cy="460" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="1045" cy="510" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  <circle cx="1035" cy="435" r="8" fill="#F44336" stroke="#c62828" stroke-width="2"/>
+  
+  <!-- Swahili Negative (now aligned with English negative) -->
+  <circle cx="1025" cy="485" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.9"/>
+  <circle cx="1045" cy="505" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.9"/>
+  <circle cx="1055" cy="475" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.9"/>
+  <circle cx="1035" cy="455" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.9"/>
+  <circle cx="1065" cy="495" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.9"/>
+  <circle cx="1015" cy="465" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.9"/>
+  <circle cx="1050" cy="515" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.9"/>
+  <circle cx="1040" cy="440" r="8" fill="#EF9A9A" stroke="#c62828" stroke-width="2" opacity="0.9"/>
+  
+  <!-- Decision boundary -->
+  <line x1="800" y1="380" x2="1300" y2="380" stroke="#1976d2" stroke-width="3" stroke-dasharray="10,5"/>
+  <text x="1280" y="370" font-size="12" font-weight="bold" text-anchor="end" fill="#1976d2">Decision Boundary</text>
+  
+  <!-- Labels for After -->
+  <text x="1035" y="220" font-size="13" font-weight="bold" text-anchor="middle" fill="#2e7d32">Positive Class</text>
+  <text x="1035" y="238" font-size="11" text-anchor="middle" fill="#555">(English + Swahili)</text>
+  <text x="1035" y="550" font-size="13" font-weight="bold" text-anchor="middle" fill="#c62828">Negative Class</text>
+  <text x="1035" y="568" font-size="11" text-anchor="middle" fill="#555">(English + Swahili)</text>
+  
+  <!-- Success indicators -->
+  <ellipse cx="1035" cy="285" rx="75" ry="65" fill="none" stroke="#4CAF50" stroke-width="3" stroke-dasharray="5,5"/>
+  <ellipse cx="1035" cy="475" rx="75" ry="70" fill="none" stroke="#F44336" stroke-width="3" stroke-dasharray="5,5"/>
+  
+  <text x="1180" y="285" font-size="11" font-weight="bold" text-anchor="start" fill="#4CAF50">Cross-lingual</text>
+  <text x="1180" y="300" font-size="11" font-weight="bold" text-anchor="start" fill="#4CAF50">alignment</text>
+  <text x="1180" y="475" font-size="11" font-weight="bold" text-anchor="start" fill="#F44336">Maintained</text>
+  <text x="1180" y="490" font-size="11" font-weight="bold" text-anchor="start" fill="#F44336">separation</text>
+  
+  <!-- Legend -->
+  <rect x="50" y="670" width="180" height="20" fill="white" stroke="#999" stroke-width="1"/>
+  <circle cx="70" cy="680" r="5" fill="#4CAF50" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="80" y="684" font-size="11" fill="#333">English Positive</text>
+  
+  <rect x="240" y="670" width="180" height="20" fill="white" stroke="#999" stroke-width="1"/>
+  <circle cx="260" cy="680" r="5" fill="#81C784" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="270" y="684" font-size="11" fill="#333">Swahili Positive</text>
+  
+  <rect x="430" y="670" width="180" height="20" fill="white" stroke="#999" stroke-width="1"/>
+  <circle cx="450" cy="680" r="5" fill="#F44336" stroke="#c62828" stroke-width="1.5"/>
+  <text x="460" y="684" font-size="11" fill="#333">English Negative</text>
+  
+  <rect x="620" y="670" width="180" height="20" fill="white" stroke="#999" stroke-width="1"/>
+  <circle cx="640" cy="680" r="5" fill="#EF9A9A" stroke="#c62828" stroke-width="1.5"/>
+  <text x="650" y="684" font-size="11" fill="#333">Swahili Negative</text>
+</svg>

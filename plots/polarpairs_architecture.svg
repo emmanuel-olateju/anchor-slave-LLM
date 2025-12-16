@@ -1,0 +1,118 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="600" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    PolarPairs: Cross-Lingual Embedding Alignment
+  </text>
+  
+  <!-- Source Language Path (Left Side) -->
+  <g id="source-path">
+    <!-- Input -->
+    <rect x="50" y="80" width="200" height="60" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="5"/>
+    <text x="150" y="105" font-size="14" font-weight="bold" text-anchor="middle" fill="#1976d2">Source Text (x)</text>
+    <text x="150" y="125" font-size="12" text-anchor="middle" fill="#555">English + Label</text>
+    
+    <!-- Encoder (Trainable) -->
+    <path d="M 150 140 L 150 180" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <rect x="50" y="180" width="200" height="80" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="5"/>
+    <text x="150" y="205" font-size="14" font-weight="bold" text-anchor="middle" fill="#f57c00">Encoder (Trainable)</text>
+    <text x="150" y="225" font-size="11" text-anchor="middle" fill="#555">e.g., XLM-RoBERTa</text>
+    <text x="150" y="245" font-size="11" text-anchor="middle" fill="#555">→ CLS Token</text>
+    
+    <!-- Alignment Head with Residual -->
+    <path d="M 150 260 L 150 300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <rect x="50" y="300" width="200" height="80" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="5"/>
+    <text x="150" y="325" font-size="14" font-weight="bold" text-anchor="middle" fill="#7b1fa2">Alignment Head</text>
+    <text x="150" y="345" font-size="11" text-anchor="middle" fill="#555">Linear + Residual</text>
+    <text x="150" y="365" font-size="11" text-anchor="middle" fill="#555">+ Layer Norm</text>
+    
+    <!-- Aligned Embedding -->
+    <path d="M 150 380 L 150 420" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <ellipse cx="150" cy="450" rx="80" ry="30" fill="#c8e6c9" stroke="#388e3c" stroke-width="2"/>
+    <text x="150" y="455" font-size="12" font-weight="bold" text-anchor="middle" fill="#388e3c">x₁_aligned</text>
+    
+    <!-- Classification Head -->
+    <path d="M 150 480 L 150 520" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <rect x="50" y="520" width="200" height="60" fill="#ffebee" stroke="#c62828" stroke-width="2" rx="5"/>
+    <text x="150" y="545" font-size="14" font-weight="bold" text-anchor="middle" fill="#c62828">Classification Head</text>
+    <text x="150" y="565" font-size="11" text-anchor="middle" fill="#555">Polarized / Non-polarized</text>
+  </g>
+  
+  <!-- Target Language Path (Right Side) -->
+  <g id="target-path">
+    <!-- Input -->
+    <rect x="950" y="80" width="200" height="60" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2" rx="5"/>
+    <text x="1050" y="105" font-size="14" font-weight="bold" text-anchor="middle" fill="#2e7d32">Target Texts (x̂)</text>
+    <text x="1050" y="125" font-size="12" text-anchor="middle" fill="#555">Arabic + Labels (N=20)</text>
+    
+    <!-- Frozen Encoder -->
+    <path d="M 1050 140 L 1050 180" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <rect x="950" y="180" width="200" height="80" fill="#e0e0e0" stroke="#616161" stroke-width="2" rx="5"/>
+    <text x="1050" y="205" font-size="14" font-weight="bold" text-anchor="middle" fill="#424242">Encoder (Frozen)</text>
+    <text x="1050" y="225" font-size="11" text-anchor="middle" fill="#555">Pretrained weights</text>
+    <text x="1050" y="245" font-size="11" text-anchor="middle" fill="#555">→ CLS Tokens</text>
+    
+    <!-- Direct pass (no alignment) -->
+    <path d="M 1050 260 L 1050 380" stroke="#333" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+    <text x="1070" y="320" font-size="11" fill="#666">No transform</text>
+    
+    <!-- Target Embeddings -->
+    <ellipse cx="1050" cy="450" rx="80" ry="30" fill="#c8e6c9" stroke="#388e3c" stroke-width="2"/>
+    <text x="1050" y="455" font-size="12" font-weight="bold" text-anchor="middle" fill="#388e3c">x₂_aligned</text>
+  </g>
+  
+  <!-- Stratified Sampling Box -->
+  <rect x="850" y="90" width="80" height="40" fill="#fff9c4" stroke="#f57f17" stroke-width="2" rx="3"/>
+  <text x="890" y="108" font-size="10" text-anchor="middle" fill="#f57f17">Stratified</text>
+  <text x="890" y="122" font-size="10" text-anchor="middle" fill="#f57f17">Sampling</text>
+  
+  <!-- Loss Components (Bottom Center) -->
+  <g id="losses">
+    <!-- Contrastive Alignment Loss -->
+    <rect x="400" y="380" width="400" height="120" fill="#fff8e1" stroke="#ff6f00" stroke-width="3" rx="5"/>
+    <text x="600" y="405" font-size="16" font-weight="bold" text-anchor="middle" fill="#ff6f00">Contrastive Alignment Loss</text>
+    <text x="600" y="430" font-size="12" text-anchor="middle" fill="#555">InfoNCE-style: Pull same-class embeddings together,</text>
+    <text x="600" y="448" font-size="12" text-anchor="middle" fill="#555">push different-class embeddings apart</text>
+    <text x="600" y="470" font-size="11" text-anchor="middle" fill="#666">Similarity: cos(x₁_aligned, x₂_aligned) / temperature</text>
+    <text x="600" y="488" font-size="11" text-anchor="middle" fill="#666">Compare source labels with target labels</text>
+    
+    <!-- Classification Loss -->
+    <rect x="50" y="620" width="200" height="80" fill="#ffcdd2" stroke="#c62828" stroke-width="2" rx="5"/>
+    <text x="150" y="645" font-size="14" font-weight="bold" text-anchor="middle" fill="#c62828">Classification Loss</text>
+    <text x="150" y="665" font-size="11" text-anchor="middle" fill="#555">Cross-entropy</text>
+    <text x="150" y="683" font-size="11" text-anchor="middle" fill="#555">with class weights</text>
+    
+    <!-- Total Loss -->
+    <rect x="400" y="620" width="400" height="80" fill="#e1bee7" stroke="#6a1b9a" stroke-width="3" rx="5"/>
+    <text x="600" y="645" font-size="16" font-weight="bold" text-anchor="middle" fill="#6a1b9a">Total Loss</text>
+    <text x="600" y="670" font-size="13" text-anchor="middle" fill="#555">(1 - λ) × Classification + λ × Alignment</text>
+    <text x="600" y="690" font-size="11" text-anchor="middle" fill="#666">λ = 0.5 (default)</text>
+  </g>
+  
+  <!-- Arrows connecting to losses -->
+  <path d="M 150 480 L 150 620" stroke="#c62828" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+  <path d="M 230 450 L 400 430" stroke="#ff6f00" stroke-width="2" marker-end="url(#arrowhead-orange)"/>
+  <path d="M 970 450 L 800 430" stroke="#ff6f00" stroke-width="2" marker-end="url(#arrowhead-orange)"/>
+  <path d="M 150 620 L 400 650" stroke="#6a1b9a" stroke-width="2" marker-end="url(#arrowhead-purple)"/>
+  <path d="M 600 500 L 600 620" stroke="#6a1b9a" stroke-width="2" marker-end="url(#arrowhead-purple)"/>
+  
+  <!-- Key Insight Box -->
+  <rect x="400" y="720" width="400" height="60" fill="#e8eaf6" stroke="#3f51b5" stroke-width="2" rx="5"/>
+  <text x="600" y="740" font-size="12" font-weight="bold" text-anchor="middle" fill="#3f51b5">Goal: Align source embeddings to target space</text>
+  <text x="600" y="760" font-size="11" text-anchor="middle" fill="#555">so source-language classifier works on target-language data</text>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#c62828"/>
+    </marker>
+    <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#ff6f00"/>
+    </marker>
+    <marker id="arrowhead-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#6a1b9a"/>
+    </marker>
+  </defs>
+</svg>
